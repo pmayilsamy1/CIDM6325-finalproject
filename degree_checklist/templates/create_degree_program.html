@@ -1,0 +1,68 @@
+<!-- create_degree_program.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div id="app" class="container mt-4">
+    <h2>Create a New Degree Program</h2>
+    <form @submit.prevent="submitForm" class="needs-validation" novalidate>
+      {% csrf_token %}
+
+      <!-- Program Name -->
+      <div class="form-group">
+        <label for="programName">Program Name</label>
+        <input v-model="formData.programName" type="text" class="form-control" id="programName" required>
+        <div class="invalid-feedback">
+          Please provide a valid program name.
+        </div>
+      </div>
+
+      <!-- Total Credits -->
+      <div class="form-group">
+        <label for="totalCredits">Total Credits</label>
+        <input v-model="formData.totalCredits" type="number" class="form-control" id="totalCredits" required>
+        <div class="invalid-feedback">
+          Please provide a valid total number of credits.
+        </div>
+      </div>
+
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select v-model="formData.department" class="form-control" id="department" required>
+          <option value="" disabled>Select a department</option>
+          <option value="IT">Information Technology</option>
+          <option value="CS">Computer Science</option>
+          <!-- Add more options as needed -->
+        </select>
+        <div class="invalid-feedback">
+          Please select a department.
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Create Degree Program</button>
+    </form>
+  </div>
+
+  <!-- Vue.js Script -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        formData: {
+          programName: '',
+          totalCredits: '',
+          department: '',
+        },
+      },
+      methods: {
+        submitForm() {
+          // Handle form submission here, you can use axios to send data to the server
+          console.log('Form submitted:', this.formData);
+        },
+      },
+    });
+  </script>
+{% endblock %}

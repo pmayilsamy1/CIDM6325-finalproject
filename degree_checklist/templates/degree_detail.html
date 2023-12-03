@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        h1, h4, h6 {
+            color: #007bff;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .table-bordered {
+            border: 2px solid #dee2e6;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-4">
+        <h1>Degree Detail</h1>
+
+        <h4>Department: {{ degree.Department.DepartmentName }}</h4>
+        <h6>Degree Program: {{ degree.ProgramName }}</h6>
+
+        <h4 class="mt-4">Core Requirements:</h4>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Requirement</th>
+                    <th>Courses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for requirement in core_requirements %}
+                    <tr>
+                        <td>{{ requirement.core_requirement.RequirementName }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for include in requirement.course.includes_set.all %}
+                                    <li>{{ include.course.CourseName }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h4 class="mt-4">Degreespecific Requirements:</h4>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Requirement</th>
+                    <th>Courses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for requirement in degreespecific_requirements %}
+                    <tr>
+                        <td>{{ requirement.degreespecific_requirement.DegreespecificReqName }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for include in requirement.course.includesdegreespecific_set.all %}
+                                    <li>{{ include.course.CourseName }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

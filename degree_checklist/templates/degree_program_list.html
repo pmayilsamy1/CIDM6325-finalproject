@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Degree Programs List</title>
+    <!-- Add your custom styles here if needed -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Degree Programs List</h2>
+
+    <p>Sort by:
+        <a href="?sort=ProgramName">Program Name</a> |
+        <a href="?sort=ProgramID">Program ID</a> |
+        <a href="?sort=TotalCredits">Total Credits</a> |
+        <a href="?sort=Department">Department</a> |
+        <!-- Add links for other columns as needed -->
+    </p>
+
+    <ul>
+        {% for degree_program in degree_programs %}
+            <li>{{ degree_program.TotalCredits }} - {{ degree_program.Department }} - {{ degree_program.ProgramName }} - {{ degree_program.ProgramID }}</li>
+            <!-- Display other fields as needed -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Add your scripts here if needed -->
+
+</body>
+</html>

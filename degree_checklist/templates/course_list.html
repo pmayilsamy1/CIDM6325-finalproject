@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Courses List</title>
+    <!-- Add your custom styles here -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Courses List</h2>
+
+    <p>Sort by:
+        <a href="?sort=CourseName">CourseName</a> |
+        <a href="?sort=CourseID">CourseID</a> |
+        <a href="?sort=Credits">Credits</a> |
+        <a href="?sort=Department">Department</a> |
+        <!-- Add links for other columns as needed -->
+    </p>
+
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.Department }}-{{ course.CourseName }} - {{ course.CourseID }}-{{ course.Credits }}</li>
+            <!-- Display other fields as needed -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Add your scripts here if needed -->
+
+</body>
+</html>

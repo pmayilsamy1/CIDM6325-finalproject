@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- degree_checklist/templates/model_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if model_type == 'degree_program_list' %}Degree Programs{% elif model_type == 'course_list' %}Courses{% else %}Model List{% endif %}</title>
+</head>
+<body>
+
+    <h2>{% if model_type == 'degree_program_list' %}Degree Programs{% elif model_type == 'course_list' %}Courses{% else %}Model List{% endif %}</h2>
+
+    <p>Sort by:
+        <a href="?sort=ProgramName">ProgramName</a> |
+        <a href="?sort=ProgramID">ProgramID</a> |
+        <a href="?sort=TotalCredits">TotalCredits</a> |
+        <a href="?sort=Department">Department</a> |
+        <!-- Add links for other columns as needed -->
+    </p>
+
+    {% if degree_programs %}
+    <ul>
+        {% for degree_program in degree_programs %}
+            <li>{{ degree_program.TotalCredits }} - {{ degree_program.Department }} - {{ degree_program.ProgramName }} - {{ degree_program.ProgramID }}</li>
+            <!-- Display other fields as needed -->
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No {{ model_type|title }} available.</p>
+    {% endif %}
+
+</body>
+</html>
