@@ -5,6 +5,7 @@ Table of Contents
 3. [Usage](#Usage)
 4. [Application Structure](#Application-Structure)
 5. [API Endpoints](#API-Endpoints)
+6. [Deploying apps in Amazon Web Sevice](#Deploying-apps-in-Amazon-Web-Sevice)
 
 
 ### 1. Introduction
