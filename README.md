@@ -68,7 +68,7 @@ The admin interface allows you to manage degree programs. Navigate to http://127
 
 #### Student and Degree Details
 - Student Detail: http://127.0.0.1:8000/degreechecklistview/students_view/1/
-![Image](https://github.com/pmayilsamy1/CIDM6325-finalproject/blob/main/screenshots/screenshot8.jpg)
+![Image](https://github.com/pmayilsamy1/CIDM6325-finalproject/blob/main/screenshots/screenshot16.jpg)
 
 - Degree Detail: http://127.0.0.1:8000/degreechecklistview/degree_detail_view/1/
 ![Image](https://github.com/pmayilsamy1/CIDM6325-finalproject/blob/main/screenshots/screenshot9.jpg)
